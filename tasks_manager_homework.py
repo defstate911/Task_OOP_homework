@@ -5,7 +5,6 @@ class Task:
     def add_task_and_date(self,  description, deadline):
         task = {"description": description, "deadline": deadline, "completed": False}
         self.tasks.append(task)
-        #return f'Задача - {task.'description'}, срок исполнения - {self.release_date}'
 
     def mark_task_completed(self, task_description):
         for task in self.tasks:
@@ -27,8 +26,8 @@ class Task:
                 if task['deadline'] == date and  not task['completed']:
 
                     print(f"-{task['description']}")
-                    tasks_found = True  # Устанавливаем флаг, если задача найдена
-        if tasks_found == False:  # Если задачи не найдены, выводим сообщение один раз
+                    tasks_found = True
+        if tasks_found == False:
                 print(f'На {date} дату задач не найдено')
 
 task_manager = Task()
