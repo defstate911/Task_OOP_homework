@@ -1,6 +1,6 @@
 class Store:
-    def __init__(self, name, address):
-        self.name = name
+    def __init__(self, name_store, address):
+        self.name_store = name_store
         self.address = address
         self.items = {}
 
@@ -21,7 +21,7 @@ class Store:
         self.items.update({name: price})
 
     def show_info(self):
-        print(f'\nМагазин "{self.name}"')
+        print(f'\nМагазин "{self.name_store}"')
         print(f'Находится по адресу:  {self.address}')
         print(f'\nВ наличии: ')
         print(*list(self.items.keys()), sep=', ')
