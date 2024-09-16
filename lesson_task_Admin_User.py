@@ -26,15 +26,12 @@ class Admin(User):
         users_list.append(user)
         #print(f"Пользователь {user.get_name()} добавлен.")
         print(users_list)
-# Данный метод исправлен ИИ, т.к. не работал при удалении пользователя Админом. Но его не проверяли.
-    def remove_user(self, users_list, user_id):
-        for user in users_list:
-            if user.get_user_id() == user_id:
-                users_list.remove(user)
-                print(f"Пользователь с ID {user_id} удален.")
-                print(users_list)
-                return
-        print(f"Пользователь с ID {user_id} не найден.")
+
+    def remove_user(self, users_list, user):
+           users_list.remove(user)
+           print(f"Пользователь  {user} удален.")
+           print(users_list)
+
 users_l = []
 admin = Admin('01', 'Сергей')
 user1 = User('11', 'Вася')
@@ -44,6 +41,4 @@ print(user1.get_name())
 admin.add_user(users_l, user1)
 admin.add_user(users_l, user2)
 
-admin.remove_user(users_l,'12')
-
-admin.remove_user(users_l,'100')
+admin.remove_user(users_l, user1)
