@@ -11,7 +11,7 @@ class User:
     def get_name(self):
         return self._name
 
-    def set__personal_info(self, year, job_title, department):
+    def set_personal_info(self, year, job_title, department):
         self.__personal_info = {
             'год рождения': year,
             'должность': job_title,
@@ -19,7 +19,7 @@ class User:
         }
         print(f'{self._name}, Ваша информация добавлена')
 
-    def get__personal_info(self):
+    def get_personal_info(self):
         print(f'\nМоя личная информация ({self._name}): ')
         for k, v in self.__personal_info.items():
             print(f"{k.capitalize()}: {v}")
@@ -58,12 +58,12 @@ admin.add_user(user2)
 admin.add_user(user3)
 admin.add_user(user4)
 
-user1.set__personal_info('1990', 'Менеджер', 'Офис')
-user2.set__personal_info('1967', 'Главбух', 'Бухгалтерия')
-user3.set__personal_info('1981', 'Курьер', 'Доставка')
-user4.set__personal_info('1996', 'Специалист', 'Бухгалтерия')
+user1.set_personal_info('1990', 'Менеджер', 'Офис')
+user2.set_personal_info('1967', 'Главбух', 'Бухгалтерия')
+user3.set_personal_info('1981', 'Курьер', 'Доставка')
+user4.set_personal_info('1996', 'Специалист', 'Бухгалтерия')
 
-user2.get__personal_info()
+user2.get_personal_info()
 admin.get_users()
 admin.remove_user('12')
 admin.get_users()
