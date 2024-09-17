@@ -60,23 +60,80 @@ class Reptile(Animal):
     def eat(self):
         return f'Любимое блюдо у {self.name} - {self.favorite_food}'
 
-# def print_make_sound(animal):
-#     print(animal.make_sound())
-
 def print_eat(animal):
     print(animal.eat())
+
+class Zoo:
+    def __init__(self):
+        self.animals = []  # Список для хранения животных
+        self.employees = []  # Список для хранения сотрудников
+
+    def add_animal(self, animal):
+        self.animals.append(animal)
+        print(f"Животное {animal.name} добавлено в зоопарк.")
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+        print(f"Сотрудник {employee.name} добавлен в зоопарк.")
+
+    def show_animals(self):
+        print("\nЖивотные в зоопарке:")
+        for animal in self.animals:
+            print(f"{animal.name} ({animal.__class__.__name__}), возраст: {animal.age}")
+
+    def show_employees(self):
+        print("\nСотрудники в зоопарке:")
+        for employee in self.employees:
+            print(f"{employee.name} ({employee.__class__.__name__})")
+
+class Employee:
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+class ZooKeeper(Employee):
+    def __init__(self, name):
+        super().__init__(name, 'ZooKeeper')
+
+    def feed_animal(self, animal):
+        print(f'\n{self.name} кормит {animal.name}')
+
+class Veterinarian(Employee):
+    def __init__(self, name):
+        super().__init__(name, 'Veterinarian')
+
+    def heal_animal(self, animal):
+        print(f'\n{self.name} лечит {animal.name}')
 
 cat_1 = Mammal('Кузя', 2, 'сметана', 'Мяу-мяу')
 dog_1 = Mammal('Барбос', 5, 'курочка', 'Гав-гав!')
 crocodile_1 = Reptile('Гена', 46, 'рыба')
+bird_1 = Bird('Яша', 25, 'Чик-чирик', 'разноцветный')
+zoo = Zoo()
+keeper = ZooKeeper('Иван')
+vet = Veterinarian('Маша')
 
 print_eat(cat_1)
 print_eat(dog_1)
 print_eat(crocodile_1)
 
-animals = [cat_1, dog_1, crocodile_1]
+animals = [cat_1, dog_1, crocodile_1, bird_1]
 def animal_sound(animals):
     for animal in animals:
         print(animal.make_sound())
 
 animal_sound(animals)
+
+zoo.add_animal(cat_1)
+zoo.add_animal(dog_1)
+zoo.add_animal(crocodile_1)
+zoo.add_animal(bird_1)
+
+zoo.add_employee(keeper)
+zoo.add_employee(vet)
+
+keeper.feed_animal(cat_1)
+vet.heal_animal(dog_1)
+
+zoo.show_animals()
+zoo.show_employees()
