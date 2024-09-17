@@ -74,7 +74,7 @@ class Zoo:
 
     def add_employee(self, employee):
         self.employees.append(employee)
-        print(f"Сотрудник {employee.name} добавлен в зоопарк.")
+        print(f"\nСотрудник {employee.name} добавлен в зоопарк.")
 
     def show_animals(self):
         print("\nЖивотные в зоопарке:")
@@ -124,10 +124,11 @@ def animal_sound(animals):
 
 animal_sound(animals)
 
-zoo.add_animal(cat_1)
-zoo.add_animal(dog_1)
-zoo.add_animal(crocodile_1)
-zoo.add_animal(bird_1)
+def add_animals(animals):
+    for animal in animals:
+        zoo.add_animal(animal)
+
+add_animals(animals)
 
 zoo.add_employee(keeper)
 zoo.add_employee(vet)
